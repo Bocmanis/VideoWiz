@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
+  IgnorableNamespaces="uap mp uap3">
+
+  <Identity
+    Name="VideoWizPackage"
+    Publisher="CN=Bocmanis Productions, O=Bocmanis Private, C=LV"
+    Version="1.0.10.0" />
+
+  <mp:PhoneIdentity PhoneProductId="b6bf780f-2c6a-492b-8aa5-3c1d802191ce" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+
+  <Properties>
+    <DisplayName>VideoWiz</DisplayName>
+    <PublisherDisplayName>Bocmanis</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
+  </Dependencies>
+
+  <Resources>
+    <Resource Language="x-generate"/>
+  </Resources>
+
+  <Applications>
+    <Application Id="App"
+      Executable="$targetnametoken$.exe"
+      EntryPoint="VideoWiz.App">
+      <uap:VisualElements
+        DisplayName="VideoWiz"
+        Square150x150Logo="Assets\Square150x150Logo.png"
+        Square44x44Logo="Assets\Square44x44Logo.png"
+        Description="VideoWiz"
+        BackgroundColor="transparent">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
+        <uap:SplashScreen Image="Assets\SplashScreen.png" />
+        <uap:InitialRotationPreference>
+          <uap:Rotation Preference="landscape"/></uap:InitialRotationPreference>
+      </uap:VisualElements>
+      <Extensions>
+        <uap:Extension Category="windows.fileTypeAssociation">
+          <uap:FileTypeAssociation Name="filetypeassoc" DesiredView="default">
+            <uap:SupportedFileTypes>
+              <uap:FileType ContentType="video/media">.mkv</uap:FileType>
+              <uap:FileType ContentType="video/media">.PRPROJ</uap:FileType>
+              <uap:FileType ContentType="video/media">.AEP</uap:FileType>
+              <uap:FileType ContentType="video/media">.PSV</uap:FileType>
+              <uap:FileType ContentType="video/media">.SWF</uap:FileType>
+              <uap:FileType ContentType="video/media">.SFD</uap:FileType>
+              <uap:FileType ContentType="video/media">.MP4</uap:FileType>
+              <uap:FileType ContentType="video/media">.META</uap:FileType>
+              <uap:FileType ContentType="video/media">.PIV</uap:FileType>
+              <uap:FileType ContentType="video/media">.BIK</uap:FileType>
+              <uap:FileType ContentType="video/media">.RMVB</uap:FileType>
+              <uap:FileType ContentType="video/media">.WEBM</uap:FileType>
+              <uap:FileType ContentType="video/media">.VEG</uap:FileType>
+              <uap:FileType ContentType="video/media">.M1V</uap:FileType>
+              <uap:FileType ContentType="video/media">.MXF</uap:FileType>
+            </uap:SupportedFileTypes>
+            <uap:DisplayName>File type associations</uap:DisplayName>
+            <uap:EditFlags OpenIsSafe="true"/>
+          </uap:FileTypeAssociation>
+        </uap:Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+
+  <Capabilities>
+    <uap:Capability Name="videosLibrary"/>
+    <uap3:Capability Name="remoteSystem"/>
+    <uap:Capability Name="removableStorage"/>
+    <uap3:Capability Name="backgroundMediaPlayback"/>
+  </Capabilities>
+</Package>

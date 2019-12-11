@@ -1,0 +1,73 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:VideoWiz"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Custom="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    x:Class="VideoWiz.VideoPlayer"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" >
+
+    <Grid Height="auto" Width="auto">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" MinHeight="68" />
+            <RowDefinition Height="0*" />
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button x:Name="playButton" Content="Play" Margin="8,7,0,0" Width="91" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Click="PlayButton_Click" Height="57" VerticalAlignment="Top" Grid.Row="2">
+            <Button.RenderTransform>
+                <CompositeTransform Rotation="-0.043"/>
+            </Button.RenderTransform>
+        </Button>
+        <TextBox x:Name="nameLabel" HorizontalAlignment="Left" Margin="12,0,0,0" Text="NameTextBox" TextWrapping="Wrap" VerticalAlignment="Center" Height="42" FontSize="20" TextChanged="NameLabel_TextChanged" Width="Auto"/>
+        <Button x:Name="backBigButton" Content="&lt; 10s" Margin="64,72,0,0" Grid.Row="2" VerticalAlignment="Top" Click="BackBigButton_Click" Height="32" Width="55" ToolTipService.ToolTip="Go back 10s"/>
+        <Button x:Name="backSmallButton" Content="&lt; 0.5s" Margin="142,72,0,0" Grid.Row="2" VerticalAlignment="Top" Click="BackSmallButton_Click" Height="32" Width="58"/>
+        <Button x:Name="forwardSmallButton" Content="0.5s &gt;" Margin="312,72,0,0" Grid.Row="2" VerticalAlignment="Top" Click="ForwardSmallButton_Click" Height="32" Width="58"/>
+        <Button x:Name="forwardBigButton" Content="10s &gt;" Margin="390,72,0,0" Grid.Row="2" VerticalAlignment="Top" Click="ForwardBigButton_Click" Height="32" Width="55"/>
+        <TextBox x:Name="fromTextBox" HorizontalAlignment="Left" Margin="58,156,0,0" Grid.Row="2" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Height="32" />
+        <TextBox x:Name="tillTextBox" HorizontalAlignment="Left" Margin="294,154,0,0" Grid.Row="2" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Height="32" />
+        <CheckBox x:Name="fromStartCheckBox" Content="From start" Margin="58,120,0,0" Grid.Row="2" VerticalAlignment="Top" Click="FromStartCheckBox_Click" Height="32" Width="120"/>
+        <CheckBox x:Name="tillEndCheckBox" Content="Till End" Margin="294,116,0,0" Grid.Row="2" VerticalAlignment="Top" Click="TillEndCheckBox_Click" Height="32" Width="120"/>
+        <Custom:DataGrid x:Name="markersDataGrid" HorizontalAlignment="Left" Margin="19,261,0,0" Grid.Row="2" VerticalAlignment="Top" Height="194" Width="1102" AutoGenerateColumns="True">
+            <Custom:DataGrid.Columns>
+                <Custom:DataGridTemplateColumn Header="Del" IsReadOnly="False">
+                    <Custom:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="🗑" Click="DeleteFromGrid_Click" ToolTipService.ToolTip="Remove marker"
+                            />
+                        </DataTemplate>
+                    </Custom:DataGridTemplateColumn.CellTemplate>
+                </Custom:DataGridTemplateColumn>
+                <Custom:DataGridTemplateColumn Header="Play" IsReadOnly="False">
+                    <Custom:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="►" Click="PlayMarker_Click" ToolTipService.ToolTip="Play this marker on repeat"
+                            />
+                        </DataTemplate>
+                    </Custom:DataGridTemplateColumn.CellTemplate>
+                </Custom:DataGridTemplateColumn>
+                <Custom:DataGridTemplateColumn Header="*" IsReadOnly="False">
+                    <Custom:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="*" Click="ApplyToAll_Click" ToolTipService.ToolTip="Apply to all videos in directory"
+                            />
+                        </DataTemplate>
+                    </Custom:DataGridTemplateColumn.CellTemplate>
+                </Custom:DataGridTemplateColumn>
+
+            </Custom:DataGrid.Columns>
+        </Custom:DataGrid>
+        <Button x:Name="addMarkerButton" Content="Add" Margin="472,152,0,0" Grid.Row="2" VerticalAlignment="Top" Click="AddMarkerButton_Click" Height="32" Width="46"/>
+        <Button x:Name="fromTakeCurrent" Content="." Margin="4,154,0,0" Grid.Row="2" VerticalAlignment="Top" Width="46" Click="FromTakeCurrent_Click" Height="32" ToolTipService.ToolTip="Take current position"/>
+        <Button x:Name="tilleTakeCurrent" Content="." Margin="238,152,0,0" Grid.Row="2" VerticalAlignment="Top" Width="46" Click="TilleTakeCurrent_Click" Height="32"  ToolTipService.ToolTip="Take current position"/>
+        <Button x:Name="previousVideoButton" Content="⇐" Margin="0,10,270,0" Height="44" Width="65" FontSize="25" FontWeight="Bold" Click="PreviousVideoButton_Click" ToolTipService.ToolTip="Previous video" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+        <Button x:Name="nextVideoButton" Content="⇒" Width="75" Height="44" FontSize="25" FontWeight="Bold" Click="NextVideoButton_Click" ToolTipService.ToolTip="Next video" VerticalAlignment="Top" HorizontalContentAlignment="Center" HorizontalAlignment="Right" Margin="0,10,170,0"/>
+        <Button x:Name="fullscreenButton" Content="Fullscreen" Margin="108,7,0,0" Width="91" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Click="FullscreenButton_Click" Height="57" VerticalAlignment="Top" Grid.Row="2">
+        </Button>
+        <MediaPlayerElement Grid.Row="2" x:Name="mediaPlayer" BorderThickness="2" BorderBrush="#FFC9A8A8" Background="#FF236AA8" VerticalAlignment="Top" HorizontalAlignment="Right" Width="480" Height="270" KeyDown="MediaPlayer_KeyDown" Margin="0,0,0,0" />
+        <Button x:Name="showHideMarkersButton" Content="Show/Hide markers" Margin="0,0,20,0" RenderTransformOrigin="0.065,0" Click="ShowHideMarkersButton_Click" ToolTipService.ToolTip="Show or hide markers that allow you to skip parts of video by time" HorizontalAlignment="Right"/>
+        <Button x:Name="resetRepeatButton" Content="Remove Repeat" Margin="599,153,0,0" Grid.Row="2" VerticalAlignment="Top" Width="119" Visibility="Collapsed" Click="ResetRepeatButton_Click"/>
+        <TextBlock x:Name="errorTextBlock" HorizontalAlignment="Left" Margin="119,195,0,0" Grid.Row="2" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="449" Height="31"/>
+    </Grid>
+</Page>

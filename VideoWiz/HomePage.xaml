@@ -1,0 +1,34 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:VideoWiz"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Custom="using:VideoWiz.Controls"
+    x:Class="VideoWiz.HomePage"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="7,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="59" Width="316" x:Name="continueWatchingLabel" Text="Continue watching:" FontSize="24" FontFamily="Caladea" FocusVisualPrimaryBrush="{x:Null}" />
+        <ScrollViewer Style="{StaticResource MyScrollViewerStyle}" Background="Transparent" HorizontalScrollBarVisibility="Visible" HorizontalScrollMode="Enabled" VerticalScrollMode="Disabled" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,60,0,0" Height="230" BorderBrush="#FFA83A3A">
+            <ListView x:Name="continueWatchingListView" Height="200" VerticalAlignment="Top">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"></StackPanel>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+            </ListView>
+        </ScrollViewer>
+        <TextBlock HorizontalAlignment="Left" Margin="4,290,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="59" Width="316" x:Name="continueWatchingLabel_Copy" Text="Collection:" FontSize="24" FontFamily="Caladea" FocusVisualPrimaryBrush="{x:Null}" />
+        <ScrollViewer Style="{StaticResource MyScrollViewerStyle}" Background="Transparent" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible" VerticalScrollMode="Enabled" HorizontalScrollMode="Disabled" HorizontalAlignment="Stretch" Margin="0,330,0,0">
+            <ListView x:Name="collectionListView" Height="Auto">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <ItemsWrapGrid Orientation="Horizontal" Width="auto" Margin="2,2,2,2"></ItemsWrapGrid>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+            </ListView>
+        </ScrollViewer>
+    </Grid>
+</Page>

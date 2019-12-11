@@ -1,0 +1,23 @@
+﻿<Page
+    x:Class="VideoWiz.VideoUpload"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:VideoWiz"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="1662" d:DesignWidth="1676">
+
+    <Grid Margin="0,0,0,0">
+        <Button x:Name="selectFolderButton" Content="Select folder with movies&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;Select a folder with multiple single video folders. Good for folders filled with movies. &#xD;&#xA;Will ignore folders with no media in it, even if subfolders do have any.&#xD;&#xA;" Margin="34,429,0,0" VerticalAlignment="Top" Height="186" Width="818" Click="SelectFolderButton_Click" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" FontSize="18"/>
+        <TextBlock x:Name="debugWindow" HorizontalAlignment="Right" Text="Debug.." TextWrapping="Wrap" VerticalAlignment="Top" Height="698" Width="531" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Margin="0,48,251,0">
+            <TextBlock.RenderTransform>
+                <CompositeTransform Rotation="0.26"/>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <Button x:Name="selectFolderButton_Copy" Content="Select a Folder w/ Single Video&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;Will select the first video in the folder and thats it." Margin="33,230,0,0" VerticalAlignment="Top" Height="186" Width="818" Click="SelectFolderSingleVideoButton_Click" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" FontSize="18"/>
+        <Button x:Name="selectSeriesButton" Content="Select a TV show&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;Get all subfolders and puts them under a single folder. Good for multiseasonal media in same folder." Margin="31,27,0,0" VerticalAlignment="Top" Height="186" Width="818" Click="SelectSeriesButton_Click" HorizontalAlignment="Left" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" FontWeight="Normal" FontStyle="Normal" FontSize="18"/>
+        <Image HorizontalAlignment="Left" Height="889" Margin="33,810,0,0" VerticalAlignment="Top" Width="1009" Source="/Assets/AddToVideosLibrary.png"/>
+        <TextBlock IsColorFontEnabled="True" HorizontalAlignment="Left" Margin="48,750,0,0" Text="Folder has to be added to Videos library for this to work" TextWrapping="Wrap" VerticalAlignment="Top" Height="91" Width="721" FontSize="20" SelectionHighlightColor="#FF0C87E8" FontWeight="Bold" TextAlignment="Center"/>
+    </Grid>
+</Page>
