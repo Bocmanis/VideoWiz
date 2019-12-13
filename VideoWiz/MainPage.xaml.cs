@@ -107,7 +107,7 @@ namespace VideoWiz
             }
         }
 
-        private async void NavView_Navigate(string navItemTag, NavigationTransitionInfo transitionInfo)
+        private void NavView_Navigate(string navItemTag, NavigationTransitionInfo transitionInfo)
         {
             Type _page = null;
             if (navItemTag == "settings")

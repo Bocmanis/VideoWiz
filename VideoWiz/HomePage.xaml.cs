@@ -32,14 +32,14 @@ namespace VideoWiz
 
         }
 
-        protected async override void OnNavigatedTo(NavigationEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             SetSources();
             Cache.SaveAllEntriesToFile();
             base.OnNavigatedTo(e);
         }
 
-        private async void SetSources()
+        private void SetSources()
         {
             continueWatchingListView.ItemsSource = null;
             collectionListView.ItemsSource = null;

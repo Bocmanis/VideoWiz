@@ -200,7 +200,7 @@ namespace VideoWiz
             }
         }
 
-        public async void Pause()
+        public void Pause()
         {
             if (mediaPlayer?.MediaPlayer == null)
             {
@@ -313,7 +313,7 @@ namespace VideoWiz
             return Cache.AllDirectories.FirstOrDefault(x => x.Id == Video.ParentDirId);
         }
 
-        protected override async void OnNavigatedFrom(NavigationEventArgs e)
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
             base.OnNavigatedFrom(e);
 
@@ -323,7 +323,7 @@ namespace VideoWiz
             }
         }
 
-        protected override async void OnNavigatingFrom(NavigatingCancelEventArgs e)
+        protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
             base.OnNavigatingFrom(e);
             if (mediaPlayer.MediaPlayer == null)
