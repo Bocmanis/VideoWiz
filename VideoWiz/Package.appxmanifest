@@ -10,7 +10,7 @@
   <Identity
     Name="VideoWizPackage"
     Publisher="CN=Bocmanis Productions, O=Bocmanis Private, C=LV"
-    Version="1.0.10.0" />
+    Version="1.0.12.0" />
 
   <mp:PhoneIdentity PhoneProductId="b6bf780f-2c6a-492b-8aa5-3c1d802191ce" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 

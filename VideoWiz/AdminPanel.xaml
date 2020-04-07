@@ -1,0 +1,16 @@
+﻿<Page
+    x:Class="VideoWiz.AdminPanel"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:VideoWiz"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Button x:Name="clearAllDataButton" Content="Clear all data" Margin="259,85,0,0" VerticalAlignment="Top" Height="76" Width="158" Click="ClearAllDataButton_Click"/>
+        <Button x:Name="clearAllProgressButton" Content="Clear all progress" Margin="258,178,0,0" VerticalAlignment="Top" Height="76" Width="158" Click="ClearAllProgressButton_Click"/>
+        <Button x:Name="clearAllSkipsButton" Content="Clear all skips" Margin="258,266,0,0" VerticalAlignment="Top" Height="76" Width="158" Click="ClearAllSkipsButton_Click"/>
+    </Grid>
+</Page>

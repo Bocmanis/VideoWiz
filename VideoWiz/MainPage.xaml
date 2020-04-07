@@ -20,7 +20,11 @@
             <NavigationView.MenuItems>
                 <NavigationViewItem Tag="home" Icon="Home" Content="Home"/>
                 <NavigationViewItemSeparator/>
-                <NavigationViewItem Tag="music" Icon="Video" Content="Add new Folders"/>
+                <NavigationViewItem Tag="upload" Icon="Video" Content="Add new Folders"/>
+                <NavigationViewItemSeparator/>
+
+                <NavigationViewItem Tag="admin" Icon="Setting" Content="Admin panel" VerticalAlignment="Bottom"/>
+
             </NavigationView.MenuItems>
 
             <ScrollViewer>

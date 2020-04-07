@@ -4,6 +4,7 @@ using Windows.UI.Xaml.Input;
 using System.Linq;
 using VideoWiz.Logic;
 using System;
+using System.Threading.Tasks;
 
 namespace VideoWiz.Controls
 {
@@ -39,11 +40,12 @@ namespace VideoWiz.Controls
             {
                 if (directory.Directories.Count == 0 && directory.Videos.Count == 1)
                 {
-                    Page.Frame.Navigate(typeof(VideoPlayer), directory.Videos.FirstOrDefault());
+                    var target = directory.Videos.FirstOrDefault();
+                    NavigateToFrame(typeof(VideoPlayer), target);
                 }
                 else
                 {
-                    Page.Frame.Navigate(typeof(FolderView), directory);
+                    NavigateToFrame(typeof(FolderView), directory, true);
                 }
             }
             else if (BaseUnit is Video video)
@@ -56,16 +58,51 @@ namespace VideoWiz.Controls
                 {
                     video.IsStarted = false;
                 }
-                Page.Frame.Navigate(typeof(VideoPlayer), video);
+                NavigateToFrame(typeof(VideoPlayer), video);
+            }
+        }
+
+        private async void NavigateToFrame(Type type, BaseUnit target, bool isDirectory = false)
+        {
+            if (await ValidatePath(target.Path, isDirectory))
+            {
+                Page.Frame.Navigate(type, target);
+            }
+        }
+
+        private async Task<bool> ValidatePath(string path, bool isDirectory = false)
+        {
+            try
+            {
+                if (isDirectory)
+                {
+                }
+                else
+                {
+                    var videoFile = await Windows.Storage.StorageFile.GetFileFromPathAsync(path);
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                
+                RemoveItem();
+                return false;
             }
         }
 
         private void RemoveButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
+            RemoveItem();
+
+        }
+
+        private void RemoveItem()
+        {
             if (BaseUnit is Directory directory)
             {
                 var parent = Cache.AllDirectories.FirstOrDefault(x => x.Id == directory.ParentDirId);
-                if (parent !=null && parent.Directories.Contains(directory))
+                if (parent != null && parent.Directories.Contains(directory))
                 {
                     parent.Directories.Remove(directory);
                 }

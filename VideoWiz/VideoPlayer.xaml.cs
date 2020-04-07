@@ -164,7 +164,10 @@ namespace VideoWiz
                     () =>
                     {
                         nameLabel.Text = Video.Name;
-                        mediaPlayer.MediaPlayer.Source = MediaSource.CreateFromStorageFile(videoFile);
+                        mediaPlayer.MediaPlayer.Source = null;
+                        var mediaPlaybackItem = new MediaPlaybackItem(MediaSource.CreateFromStorageFile(videoFile));
+                        
+                        mediaPlayer.MediaPlayer.Source = mediaPlaybackItem;
                         mediaPlayer.MediaPlayer.PlaybackMediaMarkerReached += MediaPlayer_PlaybackMediaMarkerReached;
                         SetMarkers();
                     }
@@ -281,7 +284,7 @@ namespace VideoWiz
                 if (parentsParent != null)
                 {
                     var nextSeason = parentsParent.Directories.Next(x => x.Id == parent.Id);
-                    result = nextSeason.Videos.FirstOrDefault();
+                    result = nextSeason?.Videos.FirstOrDefault();
                 }
             }
             return result;

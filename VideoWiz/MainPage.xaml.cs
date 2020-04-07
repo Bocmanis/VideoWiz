@@ -40,9 +40,8 @@ namespace VideoWiz
         private readonly List<(string Tag, Type Page)> _pages = new List<(string Tag, Type Page)>
         {
             ("home", typeof(HomePage)),
-            ("apps", typeof(VideoPlayer)),
-            ("games", typeof(HomePage)),
-            ("music", typeof(VideoUpload)),
+            ("upload", typeof(VideoUpload)),
+            ("admin", typeof(AdminPanel))
          };
 
         private void NavView_Loaded(object sender, RoutedEventArgs e)
